@@ -1,9 +1,8 @@
-from django.urls import re_path
+from django.urls import path
 
 from .views import ProfileRetrieveAPIView, ProfileFollowAPIView
 
 urlpatterns = [
-    re_path(r'^profiles/(?P<username>\w+)/?$', ProfileRetrieveAPIView.as_view()),
-    re_path(r'^profiles/(?P<username>\w+)/follow/?$',
-        ProfileFollowAPIView.as_view()),
+    path('profiles/<str:username>', ProfileRetrieveAPIView.as_view()),
+    path('profiles/<str:username>/follow', ProfileFollowAPIView.as_view()),
 ]
